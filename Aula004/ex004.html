@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCANVELO</title>
-    <link rel="shortcut icon" href="imagens/scan.PNG" type="image/x-icon">
+    <title>Conexão</title>
+    <link rel="shortcut icon" href="imagens/conexa ico.PNG" type="image/x-icon">
     <style>
 
         * {
@@ -15,7 +15,7 @@
 
         body {
             font-family: sans-serif;
-            background-color: #005c8f;
+            background-color: #6c26f8;
         }
 
         header {
@@ -42,12 +42,13 @@
             font-size: 1.3em;
             padding: 10px;
             font-weight: bold;
-            color: #005c8f;
+            color: #6c26f8;
             text-decoration: none;
         }
 
         a:hover {
-            text-decoration: underline;
+            background-color: black;
+            border-radius: 10px;
         }
 
         .container {
@@ -65,17 +66,17 @@
         h1 {
             margin-top: 30px;
             text-align: center;
-            color:#005c8f ;
+            color:black ;
         }
 
-       #txtvel {
+       #txtn {
            display: block;
            margin: auto;
            margin-top: 50px;
            width: 350px;
            height: 30px;
-           background-color: #005d8f73;
-           border: 1px solid #005c8f;
+           background-color: #6c26f89c;
+           border: 1px solid black;
        }
 
        #btn {
@@ -87,16 +88,17 @@
            width: 150px;
            cursor: pointer;
            border: none;
-           background-color: #005c8f;
+           background-color: black;
            border-radius: 10px;
        }
 
        #btn:hover {
-           background-color: rgba(0, 0, 0, 0.404);
+           background-color: #6c26f8;
        }
 
-       #txtvel::placeholder {
+       #txtn::placeholder {
            text-align: center;
+           color: rgba(0, 0, 0, 0.534);
        }
 
        #res {
@@ -111,38 +113,39 @@
     </style>
 </head>
 <body>
+
     <header>
-        <img src="imagens/SCANVELO.png" alt="logo">
+        <img src="imagens/CONEXÃO.png" alt="logo">
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Sobre nós</a></li>
             <li><a href="#">Contato</a></li>
         </ul>
     </header>
-    
-    
-    <div class="container">
-        <h1>Sistema de multas</h1>
-        <input type="number" name="txtvel" id="txtvel" placeholder="Velocidade em Km/H">
-        <input id="btn" type="button" value="Verificar" onclick="calcular()" >
-        <div id="res"></div>
-    </div>
 
-    <script>
-    
-        function calcular() {
-            var txtv = document.getElementById('txtvel')
-            var res = document.getElementById('res')
-            var vel = Number(txtv.value)
-            res.innerHTML = `<p>${vel} Km/h Velocidade Permitida</p>`
-            res.style.background = 'green'
-            res.style.color = 'white'
-            if (vel > 90) {
-                res.innerHTML = `<P>Acima do limite de Velocidade. <strong>MULTADO!</strong></P>`
-                res.style.background = 'red'
-                res.style.color = 'white'
-            }
-        }
-    </script>
+   <div class="container">
+       <h1>Sistema de Aprovação</h1>
+       <input type="number" name="txtn" id="txtn" placeholder="Média do Aluno">
+       <input id="btn" type="button" value="Verificar" onclick="verificar()">
+       <div id="res"></div>
+   </div>
+
+   <script>
+       function verificar() {
+           var txn = document.getElementById('txtn')
+           var res = document.getElementById('res')
+           var media = Number(txn.value)
+           if (media >= 5) {
+               res.innerHTML = 'APROVADO!'
+               res.style.background = 'green'
+               res.style.color = 'white'
+           } else {
+               res.innerHTML = 'REPROVADO!'
+               res.style.background = 'red'
+               res.style.color = 'white'
+           }
+
+       }
+   </script>
 </body>
 </html>
