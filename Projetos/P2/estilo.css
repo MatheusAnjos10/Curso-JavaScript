@@ -26,3 +26,10 @@ footer {
     text-align: center;
     font-style: italic;
 }
+
+img {
+    display: block;
+    margin: auto;
+    height: 200px;
+    border-radius: 10px;
+}
